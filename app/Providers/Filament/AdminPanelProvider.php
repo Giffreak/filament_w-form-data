@@ -27,15 +27,18 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->registration()
+            ->profile()
+            ->brandName('SIMJANOKON')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Blue,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(app_path('Filament/Resources'), 'App\\Filament\\Resources')
+            ->discoverPages(app_path('Filament/Pages'), 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(app_path('Filament/Widgets'), 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
